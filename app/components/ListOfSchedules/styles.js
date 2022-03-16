@@ -3,6 +3,8 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     item: {
         backgroundColor: "white",
@@ -11,23 +13,23 @@ export const styles = StyleSheet.create({
         borderColor: 'gray',
         borderRadius: 5,
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent:'flex-start'
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     },
     lineBlue: {
         width: 10,
         backgroundColor: '#add8e6',
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
-        height:'100%'
+        height: '100%'
     },
     lineGreen: {
         width: 10,
         backgroundColor: '#0FFF50',
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
-        height:'100%'
-        
+        height: '100%'
+
     },
     dataitemcontainer: {
         padding: 10,
@@ -45,16 +47,16 @@ export const styles = StyleSheet.create({
         fontWeight: "400",
         fontSize: 16
     },
-    fileicon:{
-        width:50,
-        height:50,
+    fileicon: {
+        width: 50,
+        height: 50,
 
     },
-    header:{
-        fontWeight:"bold",
-        fontSize:18,
-        paddingVertical:5,
-        color:'blue'
+    header: {
+        fontWeight: "bold",
+        fontSize: 18,
+        paddingVertical: 5,
+        color: 'blue'
     }
 
 });

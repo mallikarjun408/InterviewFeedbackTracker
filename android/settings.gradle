@@ -1,3 +1,5 @@
 rootProject.name = 'InterviewFeedbackTracker'
+include ':react-native-reanimated'
+project(':react-native-reanimated').projectDir = new File(rootProject.projectDir, '../../../../../Users/machittu/AppData/Roaming/npm/node_modules/react-native-reanimated/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'

@@ -83,7 +83,7 @@ const HistoryList = ({ navigation }) => {
                 textContent={'Loading...'}
                 textStyle={{ color: "white" }}
             />
-            <SectionList
+            {schedules.length > 0 ? <SectionList
                 sections={schedules}
                 keyExtractor={(item, index) => item + index}
                 renderItem={({ item, index, section }) => <Item data={item} index={index} section={section} mm={mm} />}
@@ -94,7 +94,7 @@ const HistoryList = ({ navigation }) => {
                         <Text style={styles.header}>{scheduled_on || ""}</Text>
                     )
                 }}
-            />
+            />: <Text>{"No List Available"}</Text>}
         </View>
     )
 

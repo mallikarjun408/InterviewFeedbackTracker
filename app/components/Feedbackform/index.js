@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, Alert } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import { styles } from "./styles";
 import userProfile from "../../assets/data/userprofile.json"
 import Pagination from "../Pagination";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+//import { useAnimatedRef } from "react-native-reanimated";
+
 import { feedbackActions } from '../../redux/actions/feedbackActions';
 import { SAVE_FEEDBACK_DETAILS_FOUR, SAVE_FEEDBACK_DETAILS_ONE, SAVE_FEEDBACK_DETAILS_THREE, SAVE_FEEDBACK_DETAILS_TWO, SAVE_FEEDBACK_DETAILS_SUBMITTED } from "../../redux/types";
 import { TYPE_OF_INTERVIEW, VIDEO_QUALITY, INTERVIEW_ROUND, IS_POSSIBLE_FAKE, FAKE_REASON } from "../../utils/const";
@@ -38,6 +39,8 @@ const Feedbackform = ({ route, navigation }) => {
 
     // const [isFeedbackSubmitted, setFeedbackSubmission] = useState(false);
 
+    //const ref = useAnimatedRef();
+    const ref = useRef(ScrollView);
 
     const dispatch = useDispatch();
 
@@ -49,13 +52,19 @@ const Feedbackform = ({ route, navigation }) => {
     const tapOnCircle = (index) => {
         if (activeIndex > index)
             setActiveIndex(index);
+        scrollToTop();
 
+    }
+    const scrollToTop = () => {
+        ref.current?.scrollTo({
+            y: 0,
+            animated: true
+        });
     }
 
     const feedbackForm1 = () => {
-
+        scrollToTop();
         setActiveIndex(2);
-
         if (editMode) {
             dispatch(feedbackActions(SAVE_FEEDBACK_DETAILS_ONE, {
                 TYPE_OF_INTERVIEW: interviewType,
@@ -68,27 +77,27 @@ const Feedbackform = ({ route, navigation }) => {
         }
     }
     const feedbackForm2 = (data) => {
-
+        scrollToTop();
         setActiveIndex(3);
-
+        // ref.current.scrollToOffset({ offset: 0, animated: true });
+        // scrollTo(ref, 0, 0, true);
         if (editMode) {
             dispatch(feedbackActions(SAVE_FEEDBACK_DETAILS_TWO, data));
         }
     }
     const feedbackForm3 = (data) => {
-
+        scrollToTop();
         setActiveIndex(4);
-
         if (editMode) {
 
             dispatch(feedbackActions(SAVE_FEEDBACK_DETAILS_THREE, data));
         }
     }
     const feedbackForm4 = (data) => {
-
+        scrollToTop();
         //  alert("  status  " + status + "    editMode    " + editMode);
         if (editMode) {
-alert('submited')
+            alert('submited')
             dispatch(feedbackActions(SAVE_FEEDBACK_DETAILS_FOUR, data));
 
             const finalFeedback = {
@@ -137,7 +146,7 @@ alert('submited')
     return (
 
         <View style={styles.container}>
-            <View style={[styles.headerView, statusColor]}>
+            {/* <View style={[styles.headerView, statusColor]}>
                 <TouchableOpacity
                     onPress={() => { navigateBack() }}>
                     <Image
@@ -146,9 +155,10 @@ alert('submited')
                     />
                 </TouchableOpacity>
                 <Text style={styles.headerText}>{"Feedbackform"}</Text>
-            </View>
+            </View> */}
             <Pagination activeIndex={activeIndex} tapOnCircle={tapOnCircle} statusColor={statusColor} />
-            <ScrollView style={styles.containerBox}>
+            <ScrollView style={styles.containerBox}
+                ref={ref} >
                 <View>
                     {activeIndex == 1 && <View style={styles.containerBox}>
                         <View style={styles.viewColumn}>

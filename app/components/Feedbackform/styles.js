@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        
     },
     containerBox: {
         flex: 1,
@@ -50,7 +51,7 @@ export const styles = StyleSheet.create({
         borderColor: 'blue',
         borderWidth: 1,
         borderRadius: 5,
-        padding:5,
+        paddingHorizontal:10,
         color: 'blue',
 
     }

@@ -14,9 +14,9 @@ const ListOfSchedules = ({ navigation }) => {
     const [spinnerState, setSpinnerState] = useState(false);
 
     useEffect(() => {
-       
+
         const unsubscribe = navigation.addListener('focus', () => {
-           
+
             setSpinnerState(true);
             APIHandler.getData("listofSchedules", "GET", "", response)
         });
@@ -29,6 +29,7 @@ const ListOfSchedules = ({ navigation }) => {
 
     const response = (res, error) => {
         setSpinnerState(false);
+        // alert(JSON.stringify(res))
         if (res != null) {
             setSchedules(res)
         } else {
@@ -40,12 +41,17 @@ const ListOfSchedules = ({ navigation }) => {
 
         data.status = "Accepted";
         data["date"] = mm;
-        alert(JSON.stringify(data) + "         " + mm)
+       // alert(JSON.stringify(data) + "         " + mm)
         setSpinnerState(true);
         APIHandler.postData("handle", "POST", data, response)
     }
-    const btnReject = (data, index) => {
-        alert(index)
+    const btnReject = (data, index, mm) => {
+       // alert(index)
+        data.status = "Rejected";
+        data["date"] = mm;
+       // alert(JSON.stringify(data) + "         " + mm)
+        setSpinnerState(true);
+        APIHandler.postData("handle", "POST", data, response)
     }
 
     const openProfile = (data) => {
@@ -56,15 +62,16 @@ const ListOfSchedules = ({ navigation }) => {
     }
 
     const onCandidateSelect = (data) => {
-        navigation.navigate("Feedbackform", { status: "Select", data: data, editMode:true })
+        navigation.navigate("Feedbackform", { status: "Select", data: data, editMode: true })
     }
 
     const onCandidateReject = (data) => {
-        navigation.navigate("Feedbackform", { status: "Reject", data: data, editMode:true })
+        navigation.navigate("Feedbackform", { status: "Reject", data: data, editMode: true })
     }
 
     const onCandidateNotAttended = (data) => {
-        navigation.navigate("Feedbackform", { status: "NotAttended", data: data, editMode:true })
+
+        navigation.navigate("NotAttended", { status: "NotAttended", data: data , date: mm})
     }
 
     // Buttons
@@ -81,7 +88,7 @@ const ListOfSchedules = ({ navigation }) => {
                 text: 'Reject',
                 backgroundColor: 'red',
                 underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
-                onPress: () => { btnReject(data, index) }
+                onPress: () => { btnReject(data, index, mm) }
             }
         ];
         let AcceptedBtns = [
@@ -138,7 +145,7 @@ const ListOfSchedules = ({ navigation }) => {
                 textContent={'Loading...'}
                 textStyle={{ color: "white" }}
             />
-            <SectionList
+            {schedules.length > 0 ? <SectionList
                 sections={schedules}
                 keyExtractor={(item, index) => item + index}
                 renderItem={({ item, index, section }) => <Item data={item} index={index} section={section} mm={mm} />}
@@ -149,7 +156,7 @@ const ListOfSchedules = ({ navigation }) => {
                         <Text style={styles.header}>{date || ""}</Text>
                     )
                 }}
-            />
+            /> : <Text>{"No List Available"}</Text>}
         </View>
     )
 

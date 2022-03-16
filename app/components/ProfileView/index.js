@@ -12,12 +12,12 @@ const ProfileView = ({ navigation }) => {
     return (
         <ScrollView>
             <View style={styles.container}>
-                <TouchableOpacity
+                {/*<TouchableOpacity
                     style={{ backgroundColor: 'white', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center', marginHorizontal: 10, paddingHorizontal: 20, paddingVertical: 10, position: 'absolute', top: 5, right: 0, borderRadius: 10 }}
                     onPress={() => { navigation.navigate('LandingScreen');  }}>
 
                     <Text style={styles.flex1, styles.textstyleval}>{"NEXT >"}</Text>
-                </TouchableOpacity>
+    </TouchableOpacity>*/}
                 <Image style={styles.image} source={{ uri: IMG_URI }} />
 
                 <View style={styles.subcontainer}>

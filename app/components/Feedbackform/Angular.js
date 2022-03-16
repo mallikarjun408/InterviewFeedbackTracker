@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import { evalutionStyle } from "./evaltionStyles";
@@ -22,15 +22,13 @@ import {
     ACCAASTND_RATING, ACCAASTND_FEEDBACK, ACCAASTND_ADDINFO
 } from '../../utils/const';
 import { useSelector } from 'react-redux';
-
 const Angular = ({ submitForm, data, editMode }) => {
 
-   /* const dispatch = useDispatch();
-
-    const feedbackReducer = useSelector(state => state.FeedbackReducer);
-    const angularFeedback = feedbackReducer.feedbackform2;
-    console.log(JSON.stringify(angularFeedback)); */
-
+    /* const dispatch = useDispatch();
+ 
+     const feedbackReducer = useSelector(state => state.FeedbackReducer);
+     const angularFeedback = feedbackReducer.feedbackform2;
+     console.log(JSON.stringify(angularFeedback)); */
     const angularFeedback = data;
 
     const [angularBasicsFeedback, setAngularBasicsFeedback] = useState(angularFeedback?.ANGULAR_BASICS_FEEDBACK || "");

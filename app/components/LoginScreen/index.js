@@ -56,10 +56,10 @@ const LoginScreen = ({ navigation }) => {
     }
 
     const onSignInTap = () => {
-        alert("type")
+       // alert("type")
     }
     const onLoginTap = () => {
-        alert('test')
+       // alert('test')
         setSpinnerState(true);
         const credentials = {
             "userName": "xxxxx",
