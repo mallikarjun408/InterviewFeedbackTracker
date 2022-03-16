@@ -1,0 +1,109 @@
+[
+    {
+        "date": "02/16/2022",
+        "data": [
+            {
+                "candidate_id":"CM0001",
+                "candidate_name": "Mallikarjuna Rao Chitturi",
+                "candidate_skillset": "Android, React Native",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "sample_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"Accepted",
+                "recruiter_name":"XXX XXXX"
+            },
+            {
+                "candidate_id":"CM0002",
+                "candidate_name": "XXXX XXXXX",
+                "candidate_skillset": "iOS",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "default_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"New",
+                "recruiter_name":"XXX XXXX"
+            }
+        ]
+    },
+    {
+        "date": "02/22/2022",
+        "data": [
+            {
+                "candidate_id":"CM0003",
+                "candidate_name": "YYYY YYYY",
+                "candidate_skillset": "Angular",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "boy.png",
+                "scheduled_at":"4:00 PM EST",
+                "status":"New",
+                "recruiter_name":"XXX XXXX"
+            },
+            {
+                "candidate_id":"CM0004",
+                "candidate_name": "Sample Name",
+                "candidate_skillset": "React",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "sample_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"Accepted",
+                "recruiter_name":"XXX XXXX"
+            }
+        ]
+    },
+    {
+        "date": "02/16/2022",
+        "data": [
+            {
+                "candidate_id":"CM0001",
+                "candidate_name": "Mallikarjuna Rao Chitturi",
+                "candidate_skillset": "Android, React Native",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "sample_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"Accepted",
+                "recruiter_name":"XXX XXXX"
+            },
+            {
+                "candidate_id":"CM0002",
+                "candidate_name": "XXXX XXXXX",
+                "candidate_skillset": "iOS",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "default_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"New",
+                "recruiter_name":"XXX XXXX"
+            }
+        ]
+    }, {
+        "date": "02/16/2022",
+        "data": [
+            {
+                "candidate_id":"CM0001",
+                "candidate_name": "Mallikarjuna Rao Chitturi",
+                "candidate_skillset": "Android, React Native",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "sample_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"Accepted",
+                "recruiter_name":"XXX XXXX"
+            },
+            {
+                "candidate_id":"CM0002",
+                "candidate_name": "XXXX XXXXX",
+                "candidate_skillset": "iOS",
+                "candidate_exp": "10 Yrs 2 Months",
+                "candidate_profilelink": "http://www.africau.edu/images/default/sample.pdf",
+                "candidate_photo": "default_avtar.jpg",
+                "scheduled_at":"4:00 PM EST",
+                "status":"New",
+                "recruiter_name":"XXX XXXX"
+            }
+        ]
+    }
+]
