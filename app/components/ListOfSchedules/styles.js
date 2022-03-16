@@ -31,6 +31,14 @@ export const styles = StyleSheet.create({
         height: '100%'
 
     },
+    lineRed: {
+        width: 10,
+        backgroundColor: 'red',
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
+        height: '100%'
+
+    },
     dataitemcontainer: {
         padding: 10,
         width: '80%'

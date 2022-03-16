@@ -41,15 +41,15 @@ const ListOfSchedules = ({ navigation }) => {
 
         data.status = "Accepted";
         data["date"] = mm;
-       // alert(JSON.stringify(data) + "         " + mm)
+        // alert(JSON.stringify(data) + "         " + mm)
         setSpinnerState(true);
         APIHandler.postData("handle", "POST", data, response)
     }
     const btnReject = (data, index, mm) => {
-       // alert(index)
+        // alert(index)
         data.status = "Rejected";
         data["date"] = mm;
-       // alert(JSON.stringify(data) + "         " + mm)
+        // alert(JSON.stringify(data) + "         " + mm)
         setSpinnerState(true);
         APIHandler.postData("handle", "POST", data, response)
     }
@@ -71,7 +71,7 @@ const ListOfSchedules = ({ navigation }) => {
 
     const onCandidateNotAttended = (data) => {
 
-        navigation.navigate("NotAttended", { status: "NotAttended", data: data , date: mm})
+        navigation.navigate("NotAttended", { status: "NotAttended", data: data, date: mm })
     }
 
     // Buttons
@@ -112,13 +112,12 @@ const ListOfSchedules = ({ navigation }) => {
             }
         ];
 
-
         return (
 
             <View style={styles.item}>
-                <View style={data.status == "New" ? styles.lineBlue : styles.lineGreen}></View>
+                <View style={data.status == "New" ? styles.lineBlue : data.status == "Accepted" ? styles.lineGreen : styles.lineRed}></View>
                 <View style={[styles.dataitemcontainer]}>
-                    <Swipeout left={data.status == "New" ? swipeBtns : AcceptedBtns}
+                    <Swipeout left={ (data.status == "New" || data.status == "Rejected") ? swipeBtns : AcceptedBtns}
                         autoClose='true'
                         backgroundColor='transparent'>
                         <View style={{ padding: 10 }}>

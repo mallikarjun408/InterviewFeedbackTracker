@@ -36,8 +36,8 @@ import {
 
 const LoginScreen = ({ navigation }) => {
 
-    const [email, setEmailValue] = useState("");
-    const [password, setPasswordValue] = useState("");
+    const [email, setEmailValue] = useState(null);
+    const [password, setPasswordValue] = useState(null);
     const [spinnerState, setSpinnerState] = useState(false);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -48,29 +48,39 @@ const LoginScreen = ({ navigation }) => {
     const response = (res, error) => {
         setSpinnerState(false);
         if (res != null) {
-            dispatch(profileActions(SAVE_PROFILE_DETAILS, res[0]))
-            navigation.navigate('ProfileView'); //LandingScreen
+
+            if (res[0].status = 200) {
+                dispatch(profileActions(SAVE_PROFILE_DETAILS, res[0]))
+                navigation.navigate('ProfileView'); //LandingScreen
+            } else {
+                alert(res[0].msg)
+            }
+
         } else {
             alert(error)
         }
     }
 
     const onSignInTap = () => {
-       // alert("type")
+        // alert("type")
     }
     const onLoginTap = () => {
-       // alert('test')
-        setSpinnerState(true);
-        const credentials = {
-            "userName": "xxxxx",
-            "pass": "yyyyy"
+        // alert('test')
+        if (email && password) {
+            setSpinnerState(true);
+            const credentials = {
+                "userName": email,
+                "pass": password
+            }
+            APIHandler.postData("login", "POST", credentials, response)
+        } else {
+            alert("Please enter valid credentials")
         }
-        APIHandler.postData("login", "POST", credentials, response)
 
     }
 
 
-    const getToken = async() => {
+    const getToken = async () => {
         //get the messeging token
         const token = await notifications.getToken()
         //you can also call messages.getToken() (does the same thing)

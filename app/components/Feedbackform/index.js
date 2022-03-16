@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, Alert } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import { styles } from "./styles";
-import userProfile from "../../assets/data/userprofile.json"
+// import userProfile from "../../assets/data/userprofile.json"
 import Pagination from "../Pagination";
 import { useSelector, useDispatch } from 'react-redux';
 //import { useAnimatedRef } from "react-native-reanimated";
@@ -26,6 +26,7 @@ const Feedbackform = ({ route, navigation }) => {
     const feedbackReducer = useSelector(state => state.FeedbackReducer);
     const profileReducer = useSelector(state => state.ProfileReducer);
     const profileInfo = profileReducer.profileDetails;
+    
     const feedbackForm1Data = feedbackReducer.feedbackform1;
     const feedbackForm2Data = editMode ? feedbackReducer.feedbackform2 : data?.skillEval || [];
     const domainKnowledgeFeedback = editMode ? feedbackReducer.feedbackform3 : data?.domainEval || [];
@@ -194,22 +195,22 @@ const Feedbackform = ({ route, navigation }) => {
                             <View style={styles.viewColumn}>
                                 <Text style={[styles.txtStyle, { flex: 3 }]}>Panel Name</Text>
                                 <Text style={[styles.txtStyle, { flex: 1 }]}>:</Text>
-                                <Text style={[styles.txtStyle, { flex: 6 }]}>{userProfile.name}</Text>
+                                <Text style={[styles.txtStyle, { flex: 6 }]}>{profileInfo.name}</Text>
                             </View>
                             <View style={styles.viewColumn}>
                                 <Text style={[styles.txtStyle, { flex: 3 }]}>Panel Designation</Text>
                                 <Text style={[styles.txtStyle, { flex: 1 }]}>:</Text>
-                                <Text style={[styles.txtStyle, { flex: 6 }]}>{userProfile.designation}</Text>
+                                <Text style={[styles.txtStyle, { flex: 6 }]}>{profileInfo.designation}</Text>
                             </View>
                             <View style={styles.viewColumn}>
                                 <Text style={[styles.txtStyle, { flex: 3 }]}>Panel BU</Text>
                                 <Text style={[styles.txtStyle, { flex: 1 }]}>:</Text>
-                                <Text style={[styles.txtStyle, { flex: 6 }]}>{userProfile.BU}</Text>
+                                <Text style={[styles.txtStyle, { flex: 6 }]}>{profileInfo.bu}</Text>
                             </View>
                             <View style={styles.viewColumn}>
                                 <Text style={[styles.txtStyle, { flex: 3 }]}>Panel Practice</Text>
                                 <Text style={[styles.txtStyle, { flex: 1 }]}>:</Text>
-                                <Text style={[styles.txtStyle, { flex: 6 }]}>{userProfile.SBU}</Text>
+                                <Text style={[styles.txtStyle, { flex: 6 }]}>{profileInfo.sbu}</Text>
                             </View>
                         </View>
                         <View style={styles.viewColumn}>
